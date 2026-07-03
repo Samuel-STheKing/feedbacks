@@ -1,4 +1,3 @@
-// E.T. "Ademar Vásquez Chávez" — interacciones del sitio
 document.addEventListener('DOMContentLoaded', () => {
 
   /* Menú móvil */
@@ -19,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* Barra de progreso de lectura (usa los colores del escudo) */
+  /* Barra de progreso de lectura */
   const progressFill = document.getElementById('progressFill');
   const updateProgress = () => {
     const scrollTop = window.scrollY;
@@ -30,20 +29,44 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', updateProgress, { passive: true });
   updateProgress();
 
-  /* Encabezado: sombra sutil al desplazar */
-  const header = document.getElementById('siteHeader');
-  const setHeaderState = () => {
-    if (!header) return;
-    header.style.boxShadow = window.scrollY > 8
-      ? '0 8px 24px -18px rgba(15,58,37,0.5)'
-      : 'none';
-  };
-  window.addEventListener('scroll', setHeaderState, { passive: true });
-  setHeaderState();
+  /* Sistema de Navegación Interna para la página menciones.html */
+  const mencionButtons = document.querySelectorAll('.mencion-card-btn');
+  const mencionesMenu = document.getElementById('mencionesMenu');
+  const mencionesPagesContainer = document.getElementById('mencionesPagesContainer');
+  const btnVolverMenciones = document.getElementById('btnVolverMenciones');
+  const mencionPageViews = document.querySelectorAll('.mencion-page-view');
 
-  /* Revelado suave de secciones al entrar en pantalla */
+  // Solo se ejecuta si los elementos existen en el HTML actual (menciones.html)
+  if (mencionButtons.length && mencionesMenu && mencionesPagesContainer && btnVolverMenciones) {
+    
+    mencionButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const targetId = button.getAttribute('data-target');
+        
+        mencionPageViews.forEach(page => page.classList.remove('active-page'));
+        
+        const activePage = document.getElementById(targetId);
+        if (activePage) {
+          activePage.classList.add('active-page');
+        }
+        
+        mencionesMenu.style.display = 'none';
+        mencionesPagesContainer.removeAttribute('hidden');
+        
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+
+    btnVolverMenciones.addEventListener('click', () => {
+      mencionesPagesContainer.setAttribute('hidden', '');
+      mencionesMenu.style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  /* Revelado suave con Intersection Observer */
   const revealTargets = document.querySelectorAll(
-    '.mencion-card, .g-item, .nosotros-copy, .nosotros-crest'
+    '.mencion-card-btn, .g-item, .nosotros-copy, .nosotros-crest, .intro-cards-preview'
   );
   if ('IntersectionObserver' in window && revealTargets.length) {
     revealTargets.forEach(el => {
@@ -59,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
           io.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.1 });
     revealTargets.forEach(el => io.observe(el));
   }
 });

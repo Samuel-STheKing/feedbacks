@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Definimos la raíz real de tu proyecto en Apache de forma directa
-    const basePath = "/PAGINA_WEB_CLEVELAND/";
+    const basePath = "/feedbacks/docs/cleveland/";
 
     // Cargar Navbar de forma dinámica
     const mainNav = document.querySelector(".main-nav");

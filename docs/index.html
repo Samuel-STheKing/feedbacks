@@ -1,202 +1,143 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>E.T. "Ademar Vásquez Chávez" — Acarigua-Portuguesa</title>
-<meta name="description" content="Escuela Técnica Ademar Vásquez Chávez, 65 años formando técnicos medios en Acarigua, Portuguesa. Menciones: Telemática, Aduana, Turismo, Administración y Contabilidad.">
-<link rel="icon" href="img/logo.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedbacks - Cleveland & Menciones</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            color: white;
+        }
+        .container {
+            text-align: center;
+            padding: 40px;
+        }
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #B5D325;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.7;
+            margin-bottom: 50px;
+        }
+        .cards {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 45px 55px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            min-width: 220px;
+            position: relative;
+            overflow: hidden;
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(181, 211, 37, 0.05), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .card:hover::before {
+            opacity: 1;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: #B5D325;
+            box-shadow: 0 20px 50px rgba(181, 211, 37, 0.15);
+        }
+        .card .icon {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 15px;
+        }
+        .card h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 0 8px 0;
+            color: #B5D325;
+            transition: color 0.3s ease;
+        }
+        .card:hover h2 {
+            color: #ffffff;
+        }
+        .card p {
+            margin: 0;
+            opacity: 0.6;
+            font-size: 0.9rem;
+        }
+        .card:hover p {
+            opacity: 0.9;
+        }
+        .footer {
+            margin-top: 50px;
+            opacity: 0.4;
+            font-size: 0.8rem;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .card {
+                padding: 30px 35px;
+                min-width: 160px;
+                width: 100%;
+            }
+            .cards {
+                gap: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-
-<div class="progress-rail" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
-
-<header class="site-header" id="siteHeader">
-  <div class="wrap header-inner">
-    <a class="brand" href="index.html#top">
-      <img src="img/logo.jpg" alt="Escudo E.T. Ademar Vásquez Chávez" class="brand-crest">
-      <span class="brand-text">
-        <strong>E.T. "Ademar Vásquez Chávez"</strong>
-        <em>Acarigua · Portuguesa</em>
-      </span>
-    </a>
-    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-    <nav class="site-nav" id="siteNav">
-      <a href="menciones.html">Menciones</a>
-      <a href="index.html#vida">Vida estudiantil</a>
-      <a href="index.html#nosotros">Nosotros</a>
-      <a href="index.html#ubicacion">Ubicación</a>
-      <a href="https://www.instagram.com/etademarvasquez/" target="_blank" rel="noopener" class="nav-ig">Instagram</a>
-    </nav>
-  </div>
-</header>
-
-<main id="top">
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="wrap hero-inner">
-      <div class="hero-copy">
-        <p class="eyebrow">Escuela Técnica</p>
-        <h1>65 años<br>formando<br><span>técnicos medios</span></h1>
-        <p class="hero-lede">Desde Acarigua, estado Portuguesa, preparamos profesionales en cinco menciones técnicas, con la disciplina, el estudio y la orientación que representa nuestro escudo.</p>
-        <div class="hero-actions">
-          <a href="menciones.html" class="btn btn-primary">Ver menciones</a>
-          <a href="https://www.instagram.com/etademarvasquez/" target="_blank" rel="noopener" class="btn btn-ghost">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg>
-            @etademarvasquez
-          </a>
+    <div class="container">
+        <h1>📂 Feedbacks</h1>
+        <p class="subtitle">Selecciona la página que deseas visitar</p>
+        <div class="cards">
+            <a href="/feedbacks/menciones/" class="card">
+                <span class="icon">📝</span>
+                <h2>Menciones</h2>
+                <p>Página de menciones y feedbacks</p>
+            </a>
+            <a href="/feedbacks/cleveland/" class="card">
+                <span class="icon">🏫</span>
+                <h2>Cleveland</h2>
+                <p>Cleveland English Institute</p>
+            </a>
         </div>
-      </div>
-      <div class="hero-visual">
-        <div class="ribbon-badge">
-          <img src="img/logo.jpg" alt="Escudo de la institución">
-        </div>
-        <figure class="hero-photo">
-          <img src="img/4.jpg" alt="Delegación de la escuela en los Juegos Deportivos Nacionales Estudiantiles JUDENAES 2026" loading="eager">
-          <figcaption>XX JUDENAES Páez 2026 — Fase parroquial/municipal</figcaption>
-        </figure>
-      </div>
+        <p class="footer">GitHub Pages · feedbacKs</p>
     </div>
-    <div class="banda" role="presentation"></div>
-  </section>
-
-  <!-- INTRODUCCIÓN A MENCIONES - Versión Mejorada -->
-  <section class="menciones-intro">
-    <div class="wrap intro-grid">
-      <div>
-        <p class="eyebrow eyebrow-dark">Oferta Académica</p>
-        <h2 class="section-title">Nuestras Menciones Técnicas</h2>
-        <p class="section-lede">Formamos profesionales de alto rendimiento preparados para los retos del sector comercial, tecnológico e industrial en nuestra región.</p>
-      </div>
-
-      <div class="intro-cards-preview">
-        <p class="preview-title">Explora los perfiles de egreso y campos laborales de nuestras especialidades:</p>
-        
-        <div class="menciones-mini-grid">
-          <a href="menciones.html#page-telematica" class="mini-mencion-card bg-telematica-mini">
-            <span>Telemática</span>
-          </a>
-          <a href="menciones.html#page-aduana" class="mini-mencion-card bg-aduana-mini">
-            <span>Aduana</span>
-          </a>
-          <a href="menciones.html#page-turismo" class="mini-mencion-card bg-turismo-mini">
-            <span>Turismo</span>
-          </a>
-          <a href="menciones.html#page-administracion" class="mini-mencion-card bg-administracion-mini">
-            <span>Administración</span>
-          </a>
-          <a href="menciones.html#page-contabilidad" class="mini-mencion-card bg-contabilidad-mini">
-            <span>Contabilidad</span>
-          </a>
-        </div>
-
-        <a href="menciones.html" class="btn btn-primary">Ingresar al catálogo completo de menciones →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- VIDA ESTUDIANTIL -->
-  <section class="vida" id="vida">
-    <div class="wrap">
-      <p class="eyebrow eyebrow-dark">Comunidad</p>
-      <h2 class="section-title">Vida estudiantil</h2>
-      <p class="section-lede">Un vistazo a lo que ocurre dentro y fuera de las aulas.</p>
-
-      <div class="gallery">
-        <figure class="g-item g-tall">
-          <img src="img/1.jpg" alt="Estudiantes representando trajes típicos en jornada de la venezolanidad" loading="lazy">
-          <figcaption>Jornada de la venezolanidad</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img src="img/2.jpg" alt="Acto estudiantil con bandas y reinas de las especialidades" loading="lazy">
-          <figcaption>Acto cultural y elección de reinas por mención</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img src="img/3.jpg" alt="Estudiantes tocando flauta traversa y clarinete en presentación musical" loading="lazy">
-          <figcaption>Presentación musical estudiantil</figcaption>
-        </figure>
-        <figure class="g-item g-wide">
-          <img src="img/6.jpg" alt="Estudiantes y docentes en la premiación de Voz Liceísta 2025" loading="lazy">
-          <figcaption>Premiación — Voz Liceísta 2025</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img src="img/8.jpg" alt="Docente explicando el uso de un telescopio en el salón de clases" loading="lazy">
-          <figcaption>Clase práctica de ciencias</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img src="img/5.jpg" alt="Personal docente en jornada de despliegue territorial de semilleros científicos" loading="lazy">
-          <figcaption>Jornada de semilleros científicos</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img src="img/7.jpg" alt="Equipo organizador junto a equipo de sonido en actividad institucional" loading="lazy">
-          <figcaption>Equipo organizador en actividad institucional</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- NOSOTROS -->
-  <section class="nosotros" id="nosotros">
-    <div class="banda banda-thin" role="presentation"></div>
-    <div class="wrap nosotros-inner">
-      <div class="nosotros-copy">
-        <p class="eyebrow eyebrow-dark">Nuestro escudo</p>
-        <h2 class="section-title">Lo que representa cada símbolo</h2>
-        <ul class="crest-list">
-          <li><strong>El libro</strong> — el estudio y la formación académica.</li>
-          <li><strong>El caduceo</strong> — el comercio, la administración y la técnica.</li>
-          <li><strong>La antorcha</strong> — la guía y la luz del conocimiento.</li>
-          <li><strong>Verde, blanco y rojo</strong> — la identidad que compartimos como institución de Acarigua-Portuguesa.</li>
-        </ul>
-      </div>
-      <div class="nosotros-crest">
-        <img src="img/logo.jpg" alt="Escudo completo de la E.T. Ademar Vásquez Chávez">
-      </div>
-    </div>
-  </section>
-
-  <!-- UBICACIÓN / CONTACTO -->
-  <section class="ubicacion" id="ubicacion">
-    <div class="wrap ubicacion-inner">
-      <div>
-        <p class="eyebrow">Visítanos</p>
-        <h2 class="section-title section-title-light">Ubicación y contacto</h2>
-        <dl class="contact-list">
-          <div>
-            <dt>Dirección de la institución</dt>
-            <dd>Prof. Milagros Aguín</dd>
-          </div>
-          <div>
-            <dt>Ubicación</dt>
-            <dd>Acarigua, estado Portuguesa, Venezuela</dd>
-          </div>
-          <div>
-            <dt>Instagram</dt>
-            <dd><a href="https://www.instagram.com/etademarvasquez/" target="_blank" rel="noopener">@etademarvasquez</a></dd>
-          </div>
-        </dl>
-        <a href="https://www.instagram.com/etademarvasquez/" target="_blank" rel="noopener" class="btn btn-primary btn-on-dark">Síguenos en Instagram</a>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer class="site-footer">
-  <div class="wrap footer-inner">
-    <img src="img/logo.jpg" alt="Escudo E.T. Ademar Vásquez Chávez" class="footer-crest">
-    <p>E.T. "Ademar Vásquez Chávez" — Acarigua, Portuguesa</p>
-    <p class="footer-fine">65 años formando técnicos medios · Telemática · Aduana · Turismo · Administración · Contabilidad</p>
-  </div>
-</footer>
-
-<script src="script.js"></script>
 </body>
 </html>
